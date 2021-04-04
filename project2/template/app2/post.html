@@ -1,0 +1,16 @@
+{% extends "app2/base.html" %}
+
+{% block tiile_block %}
+	Lakku's PAgee
+{% endblock tiile_block %}
+
+{% block content_block %}
+	<h1>WOLFFF PAGe--</h1>
+	{% for post in post_list %}
+		<a href="{{ post.get_absolute_url }}"><h2>{{ post.title }}</h2></a>
+		<p>Publish on {{ post.publish }} by {{ post.author|title }}</p>>>>
+		 {{ post.body|truncatewords:30|linebreaks }}
+	{% endfor %}
+
+	{% include "app2/page.html" with page=page_obj %}
+{% endblock content_block %}

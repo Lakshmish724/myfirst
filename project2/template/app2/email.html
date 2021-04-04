@@ -1,0 +1,30 @@
+{% extends "app2/base.html" %}
+
+{% block title_block %}
+    Shar Post By Mail
+{% endblock title_block %}
+
+{% block content_block %}
+    {% if sent  %}
+      <h1>
+    		Email Send Successfully
+      </h1>
+      <h2>
+    		Post With Title :  {{ post.title }} Shared By Email
+      </h2>
+
+
+    {% else %}
+       <h1>
+		Share Post With Title : {{ post.itle }} By Email
+	   </h1>
+
+	   <form method="POST">
+
+		   {{ form.as_p }}
+		   {% csrf_token %}
+
+		  <input type="submit" name="" class="btn btn-primary btn-lg" value="Send Mail">
+	   </form>
+	{% endif %}
+{% endblock content_block %}
